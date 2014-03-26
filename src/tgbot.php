@@ -2,11 +2,12 @@
 class main {
 	public $commands = array();
 	public $modules = array();
+	public $stringchecks = array();
 	
 	private $numModules = NULL;
 	private $numCommands = NULL;
 	
-	private $lastSender = NULL;
+	public $lastSender = NULL;
 	
 	public function __construct() {
 		//
@@ -23,6 +24,11 @@ class main {
 		$this->commands[$cmd] = $handler;		
 	}
 	
+	// alllows modules to receive the entire string should no registered command be able to use it
+	public function registerStringCheck ($string, $handler) {
+		$this->stringchecks[$string] = $handler;
+	}
+
 	// handle received commands
 	public function handle ($recv) {
 		$handler = @$this->commands[$recv[0]]; // find out handler for command
@@ -65,7 +71,7 @@ class main {
 		array_shift($reqArray);
 		
 		$this->lastSender = $sender;
-		$reqArray[0] = preg_replace( "/\r|\n/", "", $reqArray[0]);
+		$reqArray[max(array_keys($reqArray))] = preg_replace( "/\r|\n/", "", $reqArray[max(array_keys($reqArray))]);
 				
 		return $reqArray;
 	}
