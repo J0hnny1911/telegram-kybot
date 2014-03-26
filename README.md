@@ -41,6 +41,6 @@ If you want to run kybot in the background, you can use screen.
 Take a look at the example module in the <code>modules</code> folder. It should be self-explanatory. If it isn't, don't write a module.
 
 ### Disclaimer
-I'm releasing this as GPL v2, don't be a dick etc etc.
+I'm releasing this as WTFPL.
 Otherwise, I'm not a good coder. I just like to tinker with shit.
 If you burn your house down with this code, you're a fucking retard and it's your own fault.
