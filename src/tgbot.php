@@ -92,7 +92,7 @@ class main {
 				break;
 				
 			case 'imgget': // Image from URL
-				shell_exec('wget --quiet -O /tmp/img.jpg '.$image);
+				shell_exec('wget --quiet -O /tmp/img.jpg '.$mesg);
 				shell_exec('expects/tgsendimg.xp '.$this->lastSender.' /tmp/img.jpg');
 				shell_exec('rm /tmp/img.jpg');
 				break;
