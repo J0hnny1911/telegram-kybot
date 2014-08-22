@@ -21,8 +21,6 @@ kybot expects tg to reside in <code>/etc/telegram</code>. If you change that, yo
 
 After you installed tg, run it and complete the initial setup. Once done, you can install kybot.
 
-Finally, install gentoo.
-
 ### Installing kybot
 <pre>mkdir /var/dev/telegram-kybot/
 git clone https://github.com/kenniki/telegram-kybot.git /var/dev/telegram-kybot/
@@ -39,6 +37,8 @@ If you want to run kybot in the background, you can use screen.
 
 In the future, there will be some modules which use MySQL. You can supply your database configuration by using the dbconf.php file in the config/ folder.
 This is an optional step.
+
+The reddit module requires cURL.
 
 ### Writing modules
 Take a look at the example module in the <code>modules</code> folder. It should be self-explanatory. If it isn't, don't write a module.
