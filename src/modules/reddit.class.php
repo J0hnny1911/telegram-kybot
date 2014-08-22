@@ -15,7 +15,6 @@ class reddit {
 		$replyobj->reply('txt','Crawling /r/'.$recv[1].' ...');
 
 		// Download list of images
-		// Thanks to @flotwig on GitHub - https://gist.github.com/flotwig/3845707
 		$ch = curl_init('http://www.reddit.com/r/' . $recv[1] . '.json');
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,TRUE);
 		curl_setopt($ch,CURLOPT_USERAGENT,'/u/datkenny'); // for stats
@@ -54,7 +53,6 @@ class reddit {
 }
 
 $this->registerModule('reddit');
-$this->registerCommand('rsubimg','reddit');
 $this->registerCommand('reddit','reddit');
 
 ?>
