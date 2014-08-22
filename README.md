@@ -37,6 +37,9 @@ The above path is what I use.
 
 If you want to run kybot in the background, you can use screen.
 
+In the future, there will be some modules which use MySQL. You can supply your database configuration by using the dbconf.php file in the config/ folder.
+This is an optional step.
+
 ### Writing modules
 Take a look at the example module in the <code>modules</code> folder. It should be self-explanatory. If it isn't, don't write a module.
 
