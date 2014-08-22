@@ -36,7 +36,15 @@ class main {
 			$hdl = new $handler;
 			$hdl->handle($recv,$this); // delegate handling to command
 		} else {
-			$this->reply('txt', "Sorry, I don't know this command.");
+			$handled = false;
+			foreach($this->stringchecks as $string => $handler) {
+				if(!empty($handler) && preg_match("/$string/i", implode(" ",$recv))) {
+					$handled = true;
+					$hdl = new $handler;
+					$hdl->handleSC($recv,$this);
+				}
+			}
+			if (!$handled) $this->reply('txt', "Sorry, I don't know this command.");
 		}
 		unset($hdl);
 	}
