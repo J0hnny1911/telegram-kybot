@@ -47,7 +47,6 @@ class reddit {
 				$replyobj->reply('txt',"Found ".max(array_keys($links))." images on page 1, uploading one of them ... ( ".$imageurl." )");
 				$replyobj->reply('imgget',$imageurl);
 		} else {
-				$replyobj->reply('txt',"Sorry, I couldn't find any imgur links on /r/".$recv[1].".");
 				$replyobj->reply('txt',"Sorry, /r/".$recv[1]." doesn't exist or doesn't have any imgur links on it.");
 		}
 	}
