@@ -108,6 +108,14 @@ class main {
 		}
 	}
 	
+	// MySQL connection
+	public function exeQ ($dbcon, $query, $qMap=NULL) {
+			$qt = $dbcon->prepare($query);
+			$qt->execute($qMap);
+			$retval = $qt->fetchAll(PDO::FETCH_ASSOC);
+			return $retval;
+	}
+	
 }
 
 $bot = new main();
