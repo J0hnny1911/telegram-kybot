@@ -1,7 +1,7 @@
 <?php
 class cat {
 
-	public $name 	= 'ecko';
+	public $name 	= 'cat';
 	public $version = '0.01';
 	public $creator = 'kenny';
 	public $desc	= 'Answer is cat.';
