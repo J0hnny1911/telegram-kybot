@@ -20,4 +20,5 @@ class cat {
 
 $this->registerModule('cat');
 $this->registerCommand('cat','cat');
+$this->registerCommand('cate','cat');
 ?>

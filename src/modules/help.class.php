@@ -8,7 +8,7 @@ class help {
 	
 	public function handle ($recv, $replyobj) {
 		$helptxt = implode(", ", array_keys($replyobj->commands));
-		$replyobj->reply('txt','Available commands: '.$helptxt.'. Additional commands may be available depending on context.');
+		$replyobj->reply('mltxt',"Available commands:\n\n".$helptxt."\n\nAdditional commands may be available depending on context.");
 	}
 	
 }

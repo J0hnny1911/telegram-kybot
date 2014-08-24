@@ -102,6 +102,13 @@ class main {
 				shell_exec('expects/tgsendmsg.xp '.$this->lastSender.' "'.$mesg.'"');
 				break;
 				
+			case 'mltxt': // Standard message
+				//$mesg = preg_replace( "/\r|\n/", " ", $mesg);
+				file_put_contents("/tmp/mesg.txt", $mesg);
+				shell_exec('expects/tgsendmsg_ml.xp '.$this->lastSender.' /tmp/mesg.txt');
+				unlink("/tmp/mesg.txt");
+				break;
+				
 			default:
 				echo "Illegal.";
 				break;
