@@ -38,8 +38,6 @@ class derpibooru {
 		
 		print_r($result);
 		
-		//[search][#][representations][large]
-		
 		$run = 0;
 		foreach($result['search'] as $thisResult) {
 			if(!empty($thisResult['representations']['small'])) {
