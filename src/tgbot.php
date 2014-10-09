@@ -31,22 +31,31 @@ class main {
 
 	// handle received commands
 	public function handle ($recv) {
-		$handler = @$this->commands[$recv[0]]; // find out handler for command
-		if(!empty($handler)) {
-			$hdl = new $handler;
-			$hdl->handle($recv,$this); // delegate handling to command
-		} else {
-			$handled = false;
-			foreach($this->stringchecks as $string => $handler) {
-				if(!empty($handler) && preg_match("/$string/i", implode(" ",$recv))) {
-					$handled = true;
-					$hdl = new $handler;
-					$hdl->handleSC($recv,$this);
+		//$pid = pcntl_fork();
+		//if ($pid) {
+		//	echo "I'm a parent!";
+		//	return;
+		//} else {
+		//	echo "I'm a child!";
+			$handler = @$this->commands[$recv[0]]; // find out handler for command
+			print_r($recv);
+			if(!empty($handler)) {
+				$hdl = new $handler;
+				$hdl->handle($recv,$this); // delegate handling to command
+			} else {
+				$handled = false;
+				foreach($this->stringchecks as $string => $handler) {
+					if(!empty($handler) && preg_match("/$string/i", implode(" ",$recv))) {
+						$handled = true;
+						$hdl = new $handler;
+						$hdl->handleSC($recv,$this);
+					}
 				}
+				if (!$handled) $this->reply('txt', "Sorry, I don't know this command.");
 			}
-			if (!$handled) $this->reply('txt', "Sorry, I don't know this command.");
-		}
-		unset($hdl);
+			unset($hdl);
+		//	die();
+		//}
 	}
 	
 	public function loadModules () {
@@ -61,7 +70,7 @@ class main {
 		if(empty($request)) goto redo;
 		$reqArray = explode(" ",$request);
 	
-	    array_shift($reqArray);
+//	    array_shift($reqArray);
 	    array_shift($reqArray);
 		array_shift($reqArray);
 		array_shift($reqArray);
