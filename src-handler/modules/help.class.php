@@ -7,6 +7,7 @@ class help {
 	public $desc	= 'Shows a list of available commands.';
 	
 	public function handle ($recv, $replyobj) {
+		echo "helpclass";
 		$helptxt = implode(", ", array_keys($replyobj->commands));
 		$replyobj->reply('mltxt',"Available commands:\n\n".$helptxt."\n\nAdditional commands may be available depending on context.");
 	}

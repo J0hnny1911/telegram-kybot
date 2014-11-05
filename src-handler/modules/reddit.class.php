@@ -11,8 +11,6 @@ class reddit {
 			$replyobj->reply('txt',"You didn't tell me a subreddit.");	
 			return;	
 		}
-	
-		$replyobj->reply('txt','Crawling /r/'.$recv[1].' ...');
 
 		// Download list of images
 		// Thanks to @flotwig on GitHub - https://gist.github.com/flotwig/3845707

@@ -16,4 +16,5 @@ class ecko {
 
 $this->registerModule('ecko');
 $this->registerCommand('ecko','ecko');
+$this->registerCommand('echo','ecko');
 ?>

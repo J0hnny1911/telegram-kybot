@@ -40,9 +40,9 @@ class derpibooru {
 		
 		$run = 0;
 		foreach($result['search'] as $thisResult) {
-			if(!empty($thisResult['representations']['small'])) {
+			if(!empty($thisResult['representations']['large'])) {
 				$run++;
-				$links[$run]['url'] = $thisResult['representations']['small'];
+				$links[$run]['url'] = $thisResult['representations']['large'];
 				$links[$run]['id'] = $thisResult['id'];
 			}
 		}
